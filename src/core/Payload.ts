@@ -1,4 +1,4 @@
-import type * as Types from '@interfaces/index.ts'
+import type * as Types from '@app/Types.ts'
 import * as Vectors from '@vectors/index.ts'
 import Encoder from '@app/Utils.ts'
 
@@ -58,19 +58,13 @@ export class CorePayload {
    * @param config - Scan configuration object
    * @returns Complete payload array
    */
-  static getAllPayloads(config: Types.ScanConfig): string[] {
-    const vectorType = (config.vectors?.[0] || 'all') as Types.PayloadCategory
-    const basePayloads = vectorType === 'all'
-      ? Vectors.BasicVector.all()
-      : vectorType === 'basic'
-      ? Vectors.BasicVector.all()
-      : vectorType === 'advanced'
-      ? Vectors.AdvancedVector.all()
-      : vectorType === 'modern'
-      ? Vectors.ModernVector.all()
-      : vectorType === 'waf-bypass'
-      ? Vectors.WAFVector.all('test')
-      : Vectors.BasicVector.all()
+  static getAllPayloads(_config: Types.ScanConfig): string[] {
+    const basePayloads = [
+      ...Vectors.BasicVector.all(),
+      ...Vectors.AdvancedVector.all(),
+      ...Vectors.ModernVector.all(),
+      ...Vectors.WAFVector.all('test')
+    ]
     const contextual = this.generateContextualPayloads(basePayloads, 'html')
     const encoded = this.generateEncodedPayloads(contextual)
     const allPayloads = [...basePayloads, ...contextual, ...encoded]

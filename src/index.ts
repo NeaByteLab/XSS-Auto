@@ -1,4 +1,4 @@
-import type * as Types from '@interfaces/index.ts'
+import type * as Types from '@app/Types.ts'
 import * as Core from '@core/index.ts'
 
 /**
@@ -13,11 +13,11 @@ export class XssScanner {
    * @param options - Scan options (optional)
    * @returns Array of XSS scan results
    */
-  static async scan(url: string, options?: Types.XssScanOptions): Promise<Types.XssResult[]>
-  static async scan(config: { url: string } & Types.XssScanOptions): Promise<Types.XssResult[]>
+  static async scan(url: string, options?: Types.ScanOptions): Promise<Types.XssResult[]>
+  static async scan(config: { url: string } & Types.ScanOptions): Promise<Types.XssResult[]>
   static async scan(
-    input: string | ({ url: string } & Types.XssScanOptions),
-    options?: Types.XssScanOptions
+    input: string | ({ url: string } & Types.ScanOptions),
+    options?: Types.ScanOptions
   ): Promise<Types.XssResult[]> {
     const url = typeof input === 'string' ? input : input.url
     const opts = typeof input === 'string' ? options || {} : input
@@ -25,7 +25,6 @@ export class XssScanner {
       url,
       method: opts.method || (opts.body ? 'POST' : 'GET'),
       parameters: opts.parameters || Core.CoreRequester.extractParameters(url),
-      vectors: opts.vectors || ['all'],
       ...(opts.delay !== undefined && { delay: opts.delay }),
       ...(opts.headers && { headers: opts.headers })
     }
@@ -35,8 +34,8 @@ export class XssScanner {
         : Object.fromEntries(Object.entries(opts.body).map(([k, v]) => [k, String(v)]))
     }
     return await Core.CoreScanner.scanUrl(config, {
-      interactive: opts.useInteractive ?? false,
-      stopOnFirst: opts.useFirst ?? true
+      interactive: opts.interactive ?? false,
+      stopOnFirst: opts.stopOnFirst ?? true
     })
   }
 }

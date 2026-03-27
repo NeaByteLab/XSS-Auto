@@ -1,4 +1,4 @@
-import type * as Types from '@interfaces/index.ts'
+import type * as Types from '@app/Types.ts'
 import * as Core from '@core/index.ts'
 
 /**
@@ -21,15 +21,11 @@ export class CoreRequester {
     config: Types.ScanConfig,
     targetParam?: string
   ): string {
-    try {
-      const url = new URL(baseUrl)
-      if (this.isPathBased(url)) {
-        return this.buildPathBasedUrl(url, payload, config)
-      }
-      return this.buildQueryParamUrl(url, payload, targetParam)
-    } catch {
-      return this.fallbackUrlBuild(baseUrl, payload)
+    const url = new URL(baseUrl)
+    if (this.isPathBased(url)) {
+      return this.buildPathBasedUrl(url, payload, config)
     }
+    return this.buildQueryParamUrl(url, payload, targetParam)
   }
 
   /**
@@ -77,16 +73,9 @@ export class CoreRequester {
     param: string
   ): Promise<Response> {
     const testUrl = this.buildTestUrl(url, payload, config, param)
-    const headers = {
-      'User-Agent': config.userAgent || 'XSS-Auto/1.0.0',
-      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.5',
-      'Accept-Encoding': 'gzip, deflate',
-      Connection: 'keep-alive'
-    }
     const response = await fetch(testUrl, {
       method: 'GET',
-      headers,
+      headers: config.headers || {},
       credentials: 'include'
     })
     return response
@@ -101,17 +90,9 @@ export class CoreRequester {
    * @returns HTTP response object
    */
   static async sendPOST(url: string, data: string, config: Types.ScanConfig): Promise<Response> {
-    const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': config.userAgent || 'XSS-Auto/1.0.0',
-      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.5',
-      'Accept-Encoding': 'gzip, deflate',
-      Connection: 'keep-alive'
-    }
     const response = await fetch(url, {
       method: 'POST',
-      headers,
+      headers: config.headers || {},
       body: data,
       credentials: 'include'
     })
@@ -163,19 +144,7 @@ export class CoreRequester {
         .map((param) => param.split('=')[0])
         .filter((p): p is string => p !== undefined)
     }
-    return ['path']
-  }
-
-  /**
-   * Fallback URL builder.
-   * @description Creates URL when URL parsing fails.
-   * @param baseUrl - Base URL string
-   * @param payload - XSS payload
-   * @returns Fallback URL string
-   */
-  private static fallbackUrlBuild(baseUrl: string, payload: string): string {
-    const separator = baseUrl.includes('?') ? '&' : '?'
-    return `${baseUrl}${separator}xss=${encodeURIComponent(payload)}`
+    return []
   }
 
   /**

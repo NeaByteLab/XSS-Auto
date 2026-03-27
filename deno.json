@@ -65,7 +65,6 @@
     "@neabyte/xss-auto": "./src/index.ts",
     "@app/": "./src/",
     "@core/": "./src/core/",
-    "@interfaces/": "./src/interfaces/",
     "@vectors/": "./src/vectors/"
   },
   "publish": {

@@ -1,4 +1,4 @@
-import type * as Types from '@interfaces/index.ts'
+import type * as Types from '@app/Types.ts'
 import * as Core from '@core/index.ts'
 import * as Services from '@core/services/index.ts'
 
@@ -8,55 +8,6 @@ import * as Services from '@core/services/index.ts'
  */
 export class CoreScanner {
   /**
-   * Batch scan multiple URLs.
-   * @description Scans multiple targets with XSS payloads.
-   * @param testCases - Array of test case objects
-   * @returns Array of XSS scan results
-   */
-  static async batchScan(testCases: Types.BatchTestCase[]): Promise<Types.XssResult[]> {
-    const allResults: Types.XssResult[] = []
-    for (const testCase of testCases) {
-      const config: Types.ScanConfig = {
-        url: testCase.url,
-        method: testCase.method as 'GET' | 'POST',
-        parameters: testCase.parameter ? [testCase.parameter] : [],
-        userAgent: 'XSS-Auto/1.0.0',
-        vectors: ['all']
-      }
-      try {
-        const results = await this.scanUrl(config)
-        allResults.push(...results)
-      } catch {
-        continue
-      }
-    }
-    return allResults
-  }
-
-  /**
-   * Generate scan summary.
-   * @description Calculates statistics from XSS scan results.
-   * @param results - Array of XSS scan results
-   * @returns Summary statistics object
-   */
-  static generateSummary(results: Types.XssResult[]): Types.ScanSummaryStats {
-    const summary = {
-      total: results.length,
-      vulnerable: results.filter((r) => r.confirmed).length,
-      high: results.filter((r) => r.severity === 'high').length,
-      medium: results.filter((r) => r.severity === 'medium').length,
-      low: results.filter((r) => r.severity === 'low').length,
-      contexts: {} as Record<string, number>,
-      vectors: {} as Record<string, number>
-    }
-    for (const result of results) {
-      summary.contexts[result.context] = (summary.contexts[result.context] || 0) + 1
-      summary.vectors[result.vector] = (summary.vectors[result.vector] || 0) + 1
-    }
-    return summary
-  }
-
-  /**
    * Scan single URL.
    * @description Performs XSS scan on single target.
    * @param config - Scan configuration object
@@ -64,7 +15,7 @@ export class CoreScanner {
    */
   static async scanUrl(
     config: Types.ScanConfig,
-    options?: { interactive?: boolean; stopOnFirst?: boolean }
+    options?: Types.ScanOptions
   ): Promise<Types.XssResult[]> {
     const payloads = Core.CorePayload.getAllPayloads(config)
     if (config.method === 'POST' || config.formData) {
@@ -84,7 +35,7 @@ export class CoreScanner {
   private static async scanGet(
     config: Types.ScanConfig,
     payloads: string[],
-    options?: { interactive?: boolean; stopOnFirst?: boolean }
+    options?: Types.ScanOptions
   ): Promise<Types.XssResult[]> {
     const results: Types.XssResult[] = []
     const parameters = Core.CoreRequester.extractParameters(config.url)
@@ -155,15 +106,10 @@ export class CoreScanner {
   private static async scanPost(
     config: Types.ScanConfig,
     payloads: string[],
-    options?: { interactive?: boolean; stopOnFirst?: boolean }
+    options?: Types.ScanOptions
   ): Promise<Types.XssResult[]> {
     const results: Types.XssResult[] = []
-    const initialResponse = await fetch(config.url, {
-      method: 'GET',
-      headers: {
-        'User-Agent': config.headers?.['User-Agent'] || 'XSS-Auto/1.0.0'
-      }
-    })
+    const initialResponse = await Core.CoreRequester.sendGET(config.url, '', config, '')
     const responseText = await initialResponse.text()
     const forms = Core.CoreAnalyzer.extractForms(responseText)
     if (forms.length === 0) {

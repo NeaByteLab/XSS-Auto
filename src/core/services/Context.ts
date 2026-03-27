@@ -1,4 +1,4 @@
-import type * as Types from '@interfaces/index.ts'
+import type * as Types from '@app/Types.ts'
 
 /**
  * Context analysis service.
