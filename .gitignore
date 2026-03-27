@@ -1,0 +1,17 @@
+# Deno
+.deno/
+coverage/
+deno.lock
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite / Node
+.vite/
+node_modules/
+dist/
