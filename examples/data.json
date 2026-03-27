@@ -1,0 +1,357 @@
+[
+  {
+    "description": "HTML Injection (a)",
+    "url": "https://x55.is/brutelogic/xss.php?a=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection Inline with Double Quotes (b1)",
+    "url": "https://x55.is/brutelogic/xss.php?b1=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection Inline with Single Quotes (b2)",
+    "url": "https://x55.is/brutelogic/xss.php?b2=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection Inline with Double Quotes: No Tag Breaking (b3)",
+    "url": "https://x55.is/brutelogic/xss.php?b3=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection Inline with Single Quotes: No Tag Breaking (b4)",
+    "url": "https://x55.is/brutelogic/xss.php?b4=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c1)",
+    "url": "https://x55.is/brutelogic/xss.php?c1=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c2)",
+    "url": "https://x55.is/brutelogic/xss.php?c2=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c3)",
+    "url": "https://x55.is/brutelogic/xss.php?c3=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c4)",
+    "url": "https://x55.is/brutelogic/xss.php?c4=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c5)",
+    "url": "https://x55.is/brutelogic/xss.php?c5=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c6)",
+    "url": "https://x55.is/brutelogic/xss.php?c6=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c7)",
+    "url": "https://x55.is/brutelogic/xss.php?c7=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c8)",
+    "url": "https://x55.is/brutelogic/xss.php?c8=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c9)",
+    "url": "https://x55.is/brutelogic/xss.php?c9=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c10)",
+    "url": "https://x55.is/brutelogic/xss.php?c10=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c11)",
+    "url": "https://x55.is/brutelogic/xss.php?c11=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection with Tag Breaking (c12)",
+    "url": "https://x55.is/brutelogic/xss.php?c12=1",
+    "method": "GET"
+  },
+  {
+    "description": "Escaped JS Injection with Double Quotes (c6)",
+    "url": "https://x55.is/brutelogic/xss.php?c6=1",
+    "method": "GET"
+  },
+  {
+    "description": "JS Injection In Event Handler (No Handler Breaking)",
+    "url": "https://x55.is/brutelogic/lab/inside-handler.php?p=strArg",
+    "method": "GET"
+  },
+  {
+    "description": "JS Injection in Fully Validated Anchor (Href) – url2",
+    "url": "https://x55.is/brutelogic/tests/input-formats.php?url2=https://google.com/search?q=knoxss",
+    "method": "GET"
+  },
+  {
+    "description": "XML Injection with CDATA and Comment Breakout (p)",
+    "url": "https://x55.is/brutelogic/xml.php?p=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (src)",
+    "url": "https://x55.is/brutelogic/xss.php?src=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onerror)",
+    "url": "https://x55.is/brutelogic/xss.php?onerror=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onclick)",
+    "url": "https://x55.is/brutelogic/xss.php?onclick=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onload)",
+    "url": "https://x55.is/brutelogic/xss.php?onload=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmouseover)",
+    "url": "https://x55.is/brutelogic/xss.php?onmouseover=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onfocus)",
+    "url": "https://x55.is/brutelogic/xss.php?onfocus=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onblur)",
+    "url": "https://x55.is/brutelogic/xss.php?onblur=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onchange)",
+    "url": "https://x55.is/brutelogic/xss.php?onchange=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onsubmit)",
+    "url": "https://x55.is/brutelogic/xss.php?onsubmit=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onreset)",
+    "url": "https://x55.is/brutelogic/xss.php?onreset=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onselect)",
+    "url": "https://x55.is/brutelogic/xss.php?onselect=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onunload)",
+    "url": "https://x55.is/brutelogic/xss.php?onunload=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onkeydown)",
+    "url": "https://x55.is/brutelogic/xss.php?onkeydown=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onkeyup)",
+    "url": "https://x55.is/brutelogic/xss.php?onkeyup=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onkeypress)",
+    "url": "https://x55.is/brutelogic/xss.php?onkeypress=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmousedown)",
+    "url": "https://x55.is/brutelogic/xss.php?onmousedown=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmouseup)",
+    "url": "https://x55.is/brutelogic/xss.php?onmouseup=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmousemove)",
+    "url": "https://x55.is/brutelogic/xss.php?onmousemove=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmouseout)",
+    "url": "https://x55.is/brutelogic/xss.php?onmouseout=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmouseenter)",
+    "url": "https://x55.is/brutelogic/xss.php?onmouseenter=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onmouseleave)",
+    "url": "https://x55.is/brutelogic/xss.php?onmouseleave=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onwheel)",
+    "url": "https://x55.is/brutelogic/xss.php?onwheel=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (ondrag)",
+    "url": "https://x55.is/brutelogic/xss.php?ondrag=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (ondrop)",
+    "url": "https://x55.is/brutelogic/xss.php?ondrop=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onscroll)",
+    "url": "https://x55.is/brutelogic/xss.php?onscroll=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (oncopy)",
+    "url": "https://x55.is/brutelogic/xss.php?oncopy=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (oncut)",
+    "url": "https://x55.is/brutelogic/xss.php?oncut=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onpaste)",
+    "url": "https://x55.is/brutelogic/xss.php?onpaste=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (oncanplay)",
+    "url": "https://x55.is/brutelogic/xss.php?oncanplay=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (oncanplaythrough)",
+    "url": "https://x55.is/brutelogic/xss.php?oncanplaythrough=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (oncuechange)",
+    "url": "https://x55.is/brutelogic/xss.php?oncuechange=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (ondurationchange)",
+    "url": "https://x55.is/brutelogic/xss.php?ondurationchange=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onemptied)",
+    "url": "https://x55.is/brutelogic/xss.php?onemptied=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onended)",
+    "url": "https://x55.is/brutelogic/xss.php?onended=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onerror)",
+    "url": "https://x55.is/brutelogic/xss.php?onerror=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onloadeddata)",
+    "url": "https://x55.is/brutelogic/xss.php?onloadeddata=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onloadedmetadata)",
+    "url": "https://x55.is/brutelogic/xss.php?onloadedmetadata=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onloadstart)",
+    "url": "https://x55.is/brutelogic/xss.php?onloadstart=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onpause)",
+    "url": "https://x55.is/brutelogic/xss.php?onpause=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onplay)",
+    "url": "https://x55.is/brutelogic/xss.php?onplay=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onplaying)",
+    "url": "https://x55.is/brutelogic/xss.php?onplaying=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onprogress)",
+    "url": "https://x55.is/brutelogic/xss.php?onprogress=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onratechange)",
+    "url": "https://x55.is/brutelogic/xss.php?onratechange=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onseeked)",
+    "url": "https://x55.is/brutelogic/xss.php?onseeked=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onseeking)",
+    "url": "https://x55.is/brutelogic/xss.php?onseeking=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onstalled)",
+    "url": "https://x55.is/brutelogic/xss.php?onstalled=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onsuspend)",
+    "url": "https://x55.is/brutelogic/xss.php?onsuspend=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (ontimeupdate)",
+    "url": "https://x55.is/brutelogic/xss.php?ontimeupdate=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onvolumechange)",
+    "url": "https://x55.is/brutelogic/xss.php?onvolumechange=1",
+    "method": "GET"
+  },
+  {
+    "description": "HTML Injection in Script Tag (onwaiting)",
+    "url": "https://x55.is/brutelogic/xss.php?onwaiting=1",
+    "method": "GET"
+  }
+]
